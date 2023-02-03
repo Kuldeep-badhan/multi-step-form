@@ -1,0 +1,29 @@
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 3rem;
+    height: 25rem;
+    width: 30rem;
+    border: 1px solid black;
+    p {
+        margin-block: 0.7rem;
+    }
+    div {
+        margin-block:0.5rem;
+        display: flex;
+        flex-direction: column;
+        input {
+            padding: 0.2rem 0.4rem;
+        }
+    }
+
+    .btns {
+        button {
+            padding: 0.2rem 1rem;
+        }
+    }
+    
+
+}

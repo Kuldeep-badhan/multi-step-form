@@ -13,7 +13,7 @@ const Form = () => {
     step: 1,
     name: "",
     email: "",
-    password: "",
+    phone_no: "",
     plan: "",
     addon: "",
   });

@@ -5,12 +5,8 @@ const Summary = ({ prev, value, handleChange }) => {
   return (
     <div className="summary">
       <label htmlFor="info">summary</label>
-
-      <input
-        type="text"
-        // onChange={handleChange("summary")}
-        // value={value.summary}
-      />
+      <p>{value.plan}</p>
+      <p>{value.addon}</p>
       <div className="btns">
         <button onClick={prev}>prev</button>
       </div>

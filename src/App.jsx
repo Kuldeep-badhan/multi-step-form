@@ -2,10 +2,12 @@ import React from "react";
 
 import Form from "./pages/Form/Form";
 import "./App.css";
+import LeftBar from "./components/sidebar/LeftBar";
 
 function App() {
   return (
     <div className="app">
+      <LeftBar />
       <Form />
     </div>
   );
