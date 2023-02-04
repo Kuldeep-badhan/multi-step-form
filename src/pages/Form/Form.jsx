@@ -13,14 +13,20 @@ const Form = () => {
     step: 1,
     name: "",
     email: "",
-    phone_no: "",
+    phone: "",
     plan: "",
-    addon: "",
+    addon: {
+      online_service: false,
+      large_storage: false,
+      customizable_profile: false,
+    },
+    price: 0,
+    monthly: true,
   });
 
   const { step } = form;
-  const { name, email, password, plan, addon } = form;
-  const value = { name, email, password, plan, addon };
+  const { name, email, phone, plan, addon, price, monthly } = form;
+  const value = { name, email, phone, plan, addon, price, monthly };
   const nextStep = () => {
     setForm((prev) => {
       return { ...prev, step: prev.step + 1 };
@@ -39,31 +45,54 @@ const Form = () => {
       };
     });
   };
-
+  const handleCheckbox = (stateName, stateValue) => {
+    setForm((prev) => {
+      return {
+        ...prev,
+        [stateName]: stateValue,
+      };
+    });
+  };
   switch (step) {
     case 1:
-      return <Info next={nextStep} value={value} handleChange={handleInput} />;
+      return (
+        <>
+          <LeftBar step={step} />
+          <Info next={nextStep} value={value} handleChange={handleInput} />
+        </>
+      );
     case 2:
       return (
-        <Plan
-          prev={prevStep}
-          next={nextStep}
-          value={value}
-          handleChange={handleInput}
-        />
+        <>
+          <LeftBar step={step} />
+          <Plan
+            prev={prevStep}
+            next={nextStep}
+            value={value}
+            handleCheckbox={handleCheckbox}
+          />
+        </>
       );
     case 3:
       return (
-        <AddOn
-          prev={prevStep}
-          next={nextStep}
-          value={value}
-          handleChange={handleInput}
-        />
+        <>
+          <LeftBar step={step} />
+
+          <AddOn
+            prev={prevStep}
+            next={nextStep}
+            value={value}
+            handleCheckbox={handleCheckbox}
+          />
+        </>
       );
     case 4:
       return (
-        <Summary prev={prevStep} value={value} handleChange={handleInput} />
+        <>
+          <LeftBar step={step} />
+
+          <Summary prev={prevStep} value={value} handleChange={handleInput} />
+        </>
       );
   }
 };

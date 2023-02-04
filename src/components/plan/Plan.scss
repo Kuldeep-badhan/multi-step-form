@@ -1,61 +1,113 @@
-
-
 .active {
-    background-color: rgb(189, 182, 182);
+  background-color: rgb(189, 182, 182);
 }
 
 .plan__container {
-    height: 25rem;
-    width: 30rem;
-    border: 1px solid black;
+  height: 25rem;
+  width: 30rem;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+  gap: 1rem;
+  .plan__details {
     display: flex;
-    flex-direction: column;
-    padding: 3rem 2rem;
     gap: 1rem;
-    .plan__details {
+    margin-block: 1rem;
+    .plan {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: 8rem;
+      border: 1px solid black;
+      padding: 0.9rem 0.7rem;
+      border-radius: 1rem;
+      position: relative;
+      &__image {
+        justify-self: flex-start;
+      }
+      &__price {
         display: flex;
-        gap: 1rem;
-        margin-block: 1rem;
-        .plan { 
-            flex: 1;
-             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            height: 8rem;
-            border: 1px solid black;
-            padding: 0.9rem 0.7rem;
-            border-radius: 1rem;
-            position: relative;
-            &__image {
-                justify-self: flex-start;
-            }
-            &__price {
-                 display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
-            span {
-                text-transform: capitalize;
-            }
-                
-            }
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 0.4rem;
+        span {
+          text-transform: capitalize;
         }
-
+      }
     }
-    .btns{
-        display: flex;
-        justify-content: space-between;
-        button {
-            &:first-child{
-                border: none;
-                background: transparent;
-                cursor: pointer;
-            }
-            &:last-child{
-                background: gray;
-                cursor: pointer;
-            }
-            padding: 0.2rem 1rem;
+  }
+  .plan__time-selection {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      input:checked + .slider {
+        background-color: #2196f3;
+      }
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196f3;
+      }
+      input:checked + .slider::before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+        &::before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
         }
+        &.round {
+          border-radius: 34px;
+          &::before {
+            border-radius: 50%;
+          }
+        }
+      }
     }
+  }
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    button {
+      &:first-child {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
+      &:last-child {
+        background: gray;
+        cursor: pointer;
+      }
+      padding: 0.2rem 1rem;
+    }
+  }
 }
